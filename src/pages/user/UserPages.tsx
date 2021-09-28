@@ -3,6 +3,8 @@ import axios from "axios";
 import Progress from "../../helper/Progress";
 import Container from "../../helper/Container";
 import BreadCrumps from "../../helper/BreadCrumps";
+import { useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const UserPages: React.FC = () => {
     const [data, setData] = useState<any>([]);
@@ -14,6 +16,11 @@ const UserPages: React.FC = () => {
             setData(res.data);
         })
     }, []);
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        toast.dismiss()
+      }, [pathname]);
     return(
         <>
         <Container>
