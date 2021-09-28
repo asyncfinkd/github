@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios, {AxiosResponse, AxiosError} from "axios";
 import Progress from "../../helper/Progress";
 import Container from "../../helper/Container";
 import BreadCrumps from "../../helper/BreadCrumps";
@@ -11,15 +11,19 @@ const UserPages: React.FC = () => {
     const [spinner, setSpinner] = useState<boolean>(true);
     useEffect(() => {
             let newPath = window.location.pathname.split("/");
-        axios.get(`https://api.github.com/users/${newPath[2]}`).then((res) => {
+        axios.get(`https://api.github.com/users/${newPath[2]}`).then((response: AxiosResponse) => {
+            setData(response.data);
             setSpinner(false);
-            setData(res.data);
+        }).catch((reason: AxiosError) => {
+            if (reason.response!.status !== 400) {
+                console.log("err");
+            }
         })
     }, []);
     const { pathname } = useLocation();
     useEffect(() => {
         window.scrollTo(0, 0);
-        toast.dismiss()
+        toast.dismiss();
       }, [pathname]);
     return(
         <>
