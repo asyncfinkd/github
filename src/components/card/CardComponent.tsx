@@ -44,12 +44,12 @@ const CardComponent: React.FC<any> = ({ avatar, name, login, bio }: any) => {
               <MoreVertIcon />
             </IconButton>
           }
-          title={name}
+          title={name === null ? "-" : name}
           subheader={`@${login}`}
         />
         <CardContent>
           <Typography variant="body2" color="text.secondary">
-            {bio}
+            {bio === null ? "Don't have bio" : bio}
           </Typography>
         </CardContent>
       </Card>{" "}
