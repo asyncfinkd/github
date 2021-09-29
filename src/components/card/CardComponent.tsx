@@ -39,11 +39,7 @@ const CardComponent: React.FC<any> = ({ avatar, name, login, bio }: any) => {
       <Card sx={{ maxWidth: 345 }}>
         <CardHeader
           avatar={<Avatar src={avatar} />}
-          action={
-            <IconButton aria-label="settings">
-              <MoreVertIcon />
-            </IconButton>
-          }
+          action={<IconButton aria-label="settings"></IconButton>}
           title={name === null ? "-" : name}
           subheader={`@${login}`}
         />

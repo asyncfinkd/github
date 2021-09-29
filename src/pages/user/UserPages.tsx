@@ -10,6 +10,7 @@ import CardComponent from "../../components/card/CardComponent";
 const UserPages: React.FC = () => {
   const [data, setData] = useState<any>([]);
   const [spinner, setSpinner] = useState<boolean>(true);
+  const [serveralError, setServeralError] = useState<boolean>(false);
   useEffect(() => {
     let newPath = window.location.pathname.split("/");
     axios
@@ -20,7 +21,8 @@ const UserPages: React.FC = () => {
       })
       .catch((reason: AxiosError) => {
         if (reason.response!.status !== 400) {
-          console.log("err");
+          setServeralError(true);
+          setSpinner(false);
         }
       });
   }, []);
@@ -31,20 +33,24 @@ const UserPages: React.FC = () => {
   }, [pathname]);
   return (
     <>
-      <Container>
-        <Progress spinner={spinner} />
-        {spinner !== true && (
-          <>
-            <BreadCrumps />
-            <CardComponent
-              avatar={data.avatar_url}
-              name={data.name}
-              login={data.login}
-              bio={data.bio}
-            />
-          </>
-        )}
-      </Container>
+      {serveralError ? (
+        <p>404 error, user is not defined</p>
+      ) : (
+        <Container>
+          <Progress spinner={spinner} />
+          {spinner !== true && (
+            <>
+              <BreadCrumps />
+              <CardComponent
+                avatar={data.avatar_url}
+                name={data.name}
+                login={data.login}
+                bio={data.bio}
+              />
+            </>
+          )}
+        </Container>
+      )}
     </>
   );
 };
