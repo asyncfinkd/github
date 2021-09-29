@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 interface Props {
   value: any;
   onChange: any;
-  placeholder?: string
+  placeholder?: string;
 }
 
 const Input: React.FC<Props> = ({value, onChange, placeholder}) => {
