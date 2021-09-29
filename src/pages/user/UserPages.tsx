@@ -5,7 +5,7 @@ import Container from "../../helper/Container";
 import BreadCrumps from "../../helper/BreadCrumps";
 import { useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
-import Card from "../../components/card/Card";
+import CardComponent from "../../components/card/CardComponent";
 
 const UserPages: React.FC = () => {
   const [data, setData] = useState<any>([]);
@@ -36,7 +36,12 @@ const UserPages: React.FC = () => {
         {spinner !== true && (
           <>
             <BreadCrumps />
-            <Card />
+            <CardComponent
+              avatar={data.avatar_url}
+              name={data.name}
+              login={data.login}
+              bio={data.bio}
+            />
           </>
         )}
       </Container>
