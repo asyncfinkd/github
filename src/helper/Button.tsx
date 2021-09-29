@@ -2,10 +2,10 @@ import React from "react";
 import ButtonUnstyled, {
   buttonUnstyledClasses,
   ButtonUnstyledProps,
-} from '@mui/core/ButtonUnstyled';
-import { styled } from '@mui/system';
+} from "@mui/core/ButtonUnstyled";
+import { styled } from "@mui/system";
 
-const CustomButtonRoot = styled('button')(`
+const CustomButtonRoot = styled("button")(`
   background-color: #007fff;
   padding: 15px 20px;
   border-radius: 10px;
@@ -39,20 +39,20 @@ const CustomButtonRoot = styled('button')(`
 `);
 
 function CustomButton(props: ButtonUnstyledProps) {
-    return <ButtonUnstyled {...props} component={CustomButtonRoot} />;
-  }
-
-  interface Props {
-      text: string;
-      onClick?: any
-  }
-
-const Button: React.FC<Props> = ({text, onClick}) => {
-    return(
-        <>
-            <CustomButton onClick={onClick}>{text}</CustomButton>
-        </>
-    )
+  return <ButtonUnstyled {...props} component={CustomButtonRoot} />;
 }
+
+interface Props {
+  text: string;
+  onClick?: any;
+}
+
+const Button: React.FC<Props> = ({ text, onClick }) => {
+  return (
+    <>
+      <CustomButton onClick={onClick}>{text}</CustomButton>
+    </>
+  );
+};
 
 export default Button;

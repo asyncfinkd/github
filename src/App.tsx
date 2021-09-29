@@ -2,12 +2,12 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import IndexPages from "./pages/index/IndexPages";
 import UserPages from "./pages/user/UserPages";
-import {ToastContainer} from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 const App: React.FC = () => {
-  return(
+  return (
     <>
-    <ToastContainer />
+      <ToastContainer />
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={IndexPages} />
@@ -15,7 +15,7 @@ const App: React.FC = () => {
         </Switch>
       </BrowserRouter>
     </>
-  )
-}
+  );
+};
 
 export default App;
