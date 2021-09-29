@@ -6,8 +6,9 @@ import Lists from "../../helper/Lists";
 const ReposPages: React.FC = () => {
   const [data, setData] = useState<any>([]);
   useEffect(() => {
+    let newPath = window.location.pathname.split("/");
     axios
-      .get("https://api.github.com/users/asyncfinkd/repos")
+      .get(`https://api.github.com/users/${newPath[2]}/repos`)
       .then((res: any) => {
         setData(res.data);
       });

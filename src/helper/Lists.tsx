@@ -5,7 +5,6 @@ import Divider from "@mui/material/Divider";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-import Typography from "@mui/material/Typography";
 
 const Lists: React.FC<any> = ({ data }: any) => {
   return (
@@ -27,7 +26,9 @@ const Lists: React.FC<any> = ({ data }: any) => {
                 <ListItemText
                   primary={item.name}
                   secondary={
-                    <React.Fragment>{item.description}</React.Fragment>
+                    <React.Fragment>
+                      {item.description === null ? "-" : item.description}
+                    </React.Fragment>
                   }
                 />
               </ListItem>
