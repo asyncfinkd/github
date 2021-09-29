@@ -36,7 +36,7 @@ const UserPages: React.FC = () => {
       {serveralError ? (
         <p>404 error, user is not defined</p>
       ) : (
-        <Container>
+        <Container onScreen={true}>
           <Progress spinner={spinner} />
           {spinner !== true && (
             <>

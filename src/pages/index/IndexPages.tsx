@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useState } from "react";
 import Button from "../../helper/Button";
 import Input from "../../helper/Input";
@@ -17,7 +17,7 @@ const IndexPages: React.FC = () => {
   return (
     <>
       <Form>
-        <Container>
+        <Container onScreen={true}>
           <h2>Github</h2>
           <Input
             placeholder={"Username"}

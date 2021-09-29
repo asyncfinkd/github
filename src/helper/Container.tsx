@@ -1,6 +1,6 @@
 import React from "react";
 
-const Container: React.FC<any> = ({ children }: any) => {
+const Container: React.FC<any> = ({ children, onScreen }: any) => {
   return (
     <>
       <div
@@ -8,10 +8,10 @@ const Container: React.FC<any> = ({ children }: any) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          height: "100vh",
           flexDirection: "column",
           gap: "15px",
         }}
+        className={onScreen && "height"}
       >
         {children}
       </div>

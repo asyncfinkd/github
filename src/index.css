@@ -4,3 +4,7 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
+
+.height {
+  height: 100vh;
+}
